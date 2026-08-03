@@ -47,7 +47,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
@@ -60,36 +60,25 @@
             height: 70px;
         }
 
-        /* Profile Image Logo Styling */
         .logo-container {
             display: flex;
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            }
-        .logo-img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%; /* Makes the photo circular */
-            object-fit: cover;  /* Ensures the photo doesn't stretch */
-            border: 2px solid var(--primary-color); /* Gives a clean subtle highlight border */
-            transition: var(--transition);
         }
 
-        .logo-container:hover .logo-img {
-            transform: scale(1.05);
-            border-color: var(--accent-color);
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
         }
 
         .logo-text {
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--text-color);
-            transition: var(--transition);
-        }
-
-        .logo-container:hover .logo-text {
-            color: var(--primary-color);
         }
 
         .nav-links {
@@ -111,76 +100,101 @@
 
         /* Hero Section */
         #hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding-top: 70px;
+            padding-top: 100px;
+            padding-bottom: 50px;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
+        .hero-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
             margin-bottom: 10px;
+            line-height: 1.2;
         }
 
-        .hero-content h1 span {
+        .hero-text h1 span {
             color: var(--primary-color);
         }
 
-        .hero-content h3 {
-            font-size: 1.3rem;
+        .hero-text h3 {
+            font-size: 1.2rem;
             color: var(--accent-color);
             margin-bottom: 15px;
             font-weight: 500;
         }
 
-        .hero-content p {
-            max-width: 650px;
-            margin: 0 auto 25px;
+        .hero-text p {
+            margin-bottom: 25px;
             color: var(--text-muted);
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
+        .hero-image-container {
+            flex-shrink: 0;
+            text-align: center;
         }
 
-        .social-links a {
-            width: 40px;
-            height: 40px;
+        .hero-photo {
+            width: 260px;
+            height: 260px;
             border-radius: 50%;
-            background: var(--card-bg);
-            color: var(--text-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            border: 1px solid var(--border-color);
-            transition: var(--transition);
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
         }
 
-        .social-links a:hover {
-            background: var(--primary-color);
-            color: var(--bg-color);
-            transform: translateY(-3px);
+        /* Hero Action Buttons */
+        .hero-btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 10px 25px;
-            background: var(--primary-color);
-            color: var(--bg-color);
-            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem;
             transition: var(--transition);
+            border: 1px solid transparent;
+            cursor: pointer;
         }
 
-        .btn:hover {
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--bg-color);
+        }
+
+        .btn-primary:hover {
             opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
             transform: translateY(-2px);
         }
 
@@ -206,10 +220,47 @@
             border-radius: 2px;
         }
 
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
         }
 
@@ -244,24 +295,38 @@
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
             gap: 25px;
         }
 
         .project-card {
             background: var(--card-bg);
             border-radius: 8px;
-            padding: 25px;
+            overflow: hidden;
             border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             transition: var(--transition);
         }
 
         .project-card:hover {
             transform: translateY(-5px);
             border-color: var(--primary-color);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #0d1322;
+        }
+
+        .project-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-card h3 {
@@ -273,12 +338,13 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-bottom: 15px;
+            flex-grow: 1;
         }
 
         .project-links {
-            margin-top: auto;
             display: flex;
             gap: 15px;
+            margin-top: auto;
         }
 
         .project-links a {
@@ -288,9 +354,8 @@
             font-weight: 500;
         }
 
-        /* Experience & Education Timelines */
+        /* Timelines */
         .timeline {
-            position: relative;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -303,9 +368,7 @@
             margin-bottom: 20px;
         }
 
-        .timeline-item h3 {
-            font-size: 1.1rem;
-        }
+        .timeline-item h3 { font-size: 1.1rem; }
 
         .timeline-item .sub {
             color: var(--accent-color);
@@ -319,26 +382,70 @@
             font-size: 0.9rem;
         }
 
-        /* Contact Section */
-        .contact-content {
-            text-align: center;
-            max-width: 600px;
+        /* Contact Form Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .contact-info {
+        .contact-info-box {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             color: var(--text-muted);
+        }
+
+        .contact-item i {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            width: 30px;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-size: 0.88rem;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 10px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
         }
 
         /* Footer */
@@ -351,59 +458,102 @@
         }
 
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.2rem; }
-            .nav-links { display: none; } /* Simplified mobile menu */
+            .hero-flex {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-btn-group { justify-content: center; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <!-- Navigation with Profile Photo Logo -->
-<nav>
-    <div class="container nav-container">
-        <!-- Profile Image Logo -->
-        <a href="#" class="logo-container">
-            <!-- Replace 'profile.jpg' with your actual image path or URL -->
-            <img src="mine.jpeg" alt="Ganesh Sunkari" class="logo-img">
-            <span class="logo-text">Ganesh Sunkari</span>
-            
-        </a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
-</nav>
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo-container">
+                <img src="mine.jpeg" alt="Ganesh Sunkari" class="logo-img">
+                <span class="logo-text">Ganesh Sunkari</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section id="hero">
-        <div class="container hero-content">
-            <h1>Hi, I'm <span>Ganesh Sunkari</span></h1>
-            <h3>Python Developer | SQL Developer | Data Analyst | Machine Learning Enthusiast | AI Prompt Engineer</h3>
-            <p>Computer Science graduate passionate about analyzing data, developing intelligent predictive models, writing clean Python code, and engineering effective prompts for LLM evaluation.</p>
-            
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/ganesh-sunkari88/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/GaneshSunkari66" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:sunkariganesh48@gmail.com"><i class="fas fa-envelope"></i></a>
+        <div class="container hero-flex">
+            <div class="hero-text">
+                <h1>Hi, I'm <span>Ganesh Sunkari</span></h1>
+                <h3>Python Developer | SQL Developer | Data Analyst | Machine Learning Enthusiast | AI Prompt Engineer</h3>
+                <p>Computer Science graduate passionate about building analytical solutions, automating processes, writing clean backend Python logic, and crafting effective prompt engineering frameworks.</p>
+                
+                <!-- Action Buttons -->
+                <div class="hero-btn-group">
+                    <!-- Replace Ganesh_Sunkari_Resume.pdf with your actual resume file name -->
+                    <a href="Ganesh.pdf" download class="btn btn-primary"><i class="fas fa-download"></i> Download Resume</a>
+                    <a href="https://github.com/GaneshSunkari66" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/ganesh-sunkari88/" target="_blank" class="btn btn-outline"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                    <a href="mailto:sunkariganesh48@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i> Email Me</a>
+                </div>
             </div>
 
-            <a href="#projects" class="btn">View My Work</a>
+            <!-- Profile Photo Container -->
+            <div class="hero-image-container">
+                <img src="mine.jpeg" alt="Ganesh Sunkari" class="hero-photo">
+            </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Services Section (Freelance / Competencies) -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">What I Do / Services</h2>
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <i class="fab fa-python"></i>
+                    <h3>Python Development</h3>
+                    <p>Building Python applications, custom scripts, backend REST APIs using Flask, and web scraping utilities.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-database"></i>
+                    <h3>SQL & Databases</h3>
+                    <p>Database design, querying, data optimization, and relational database management with MySQL and PostgreSQL.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Dashboards & BI</h3>
+                    <p>Designing interactive Power BI and Excel dashboards to transform raw data into clear executive insights.</p>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI & Automation</h3>
+                    <p>Evaluating LLM responses, refining prompts, and implementing entry-level machine learning models.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
     <section id="skills">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h3>Languages & Backend</h3>
+                    <h3>Languages & Frameworks</h3>
                     <div class="tags">
                         <span class="tag">Python</span>
                         <span class="tag">SQL</span>
@@ -412,12 +562,11 @@
                     </div>
                 </div>
                 <div class="skill-card">
-                    <h3>Data Analytics & BI</h3>
+                    <h3>Data & Analytics</h3>
                     <div class="tags">
                         <span class="tag">Power BI</span>
                         <span class="tag">Advanced Excel</span>
                         <span class="tag">ETL / Power Query</span>
-                        <span class="tag">Data Cleaning</span>
                         <span class="tag">EDA</span>
                     </div>
                 </div>
@@ -428,14 +577,12 @@
                         <span class="tag">Random Forest</span>
                         <span class="tag">SVM</span>
                         <span class="tag">Prompt Engineering</span>
-                        <span class="tag">LLM Evaluation</span>
                     </div>
                 </div>
                 <div class="skill-card">
                     <h3>Frontend & Tools</h3>
                     <div class="tags">
-                        <span class="tag">HTML5 / CSS3</span>
-                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML / CSS / JS</span>
                         <span class="tag">GitHub</span>
                         <span class="tag">Jupyter</span>
                         <span class="tag">VS Code</span>
@@ -453,7 +600,7 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <h3>Freelance – AI Response Evaluation & Prompt Engineer</h3>
-                    <div class="sub">Aug 2025 – Mar 2026</div>
+                    <div class="sub">Aug 2025 – Present</div>
                     <ul>
                         <li>Evaluated AI/LLM-generated outputs for accuracy, reasoning, consistency, and alignment.</li>
                         <li>Designed, refined, and tested prompts for summarization, classification, and conversational logic.</li>
@@ -473,29 +620,35 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section (With Screenshots/GIFs) -->
     <section id="projects">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
                 
+                <!-- Project 1 -->
                 <div class="project-card">
-                    <div>
+                    <!-- Replace 'accident-predict.gif' with your actual screenshot/GIF path -->
+                    <img src="accident-predict.gif" alt="Accident Injury Prediction Demo" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Accident+Injury+Prediction+Demo';">
+                    <div class="project-content">
                         <h3>Accident Injury Prediction</h3>
                         <div class="tags" style="margin-bottom:10px;">
                             <span class="tag">Python</span>
                             <span class="tag">Machine Learning</span>
                             <span class="tag">Streamlit</span>
                         </div>
-                        <p>Built a classification model (Decision Tree) predicting injury severity based on environmental and road conditions. Integrated interactive Streamlit UI for real-time predictions.</p>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/GaneshSunkari66" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <p>Built a classification model predicting injury severity based on environmental and road conditions. Integrated an interactive Streamlit UI for real-time predictions.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/GaneshSunkari66" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Project 2 -->
                 <div class="project-card">
-                    <div>
+                    <!-- Replace 'amazon-dashboard.png' with your actual screenshot/GIF path -->
+                    <img src="amazon-dashboard.png" alt="Amazon Sales Dashboard Preview" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Amazon+Sales+Dashboard';">
+                    <div class="project-content">
                         <h3>Amazon Sales Dashboard</h3>
                         <div class="tags" style="margin-bottom:10px;">
                             <span class="tag">Power BI</span>
@@ -503,14 +656,17 @@
                             <span class="tag">Excel</span>
                         </div>
                         <p>Developed an interactive sales tracking dashboard for key KPIs like revenue and product performance. Executed ETL procedures to cleanse raw transaction data.</p>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/GaneshSunkari66" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <div class="project-links">
+                            <a href="https://github.com/GaneshSunkari66" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Project 3 -->
                 <div class="project-card">
-                    <div>
+                    <!-- Replace 'customer-analysis.png' with your actual screenshot/GIF path -->
+                    <img src="customer-analysis.png" alt="Customer Behaviour Dashboard" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Customer+Behaviour+Analysis';">
+                    <div class="project-content">
                         <h3>Customer Behaviour Analysis</h3>
                         <div class="tags" style="margin-bottom:10px;">
                             <span class="tag">Python</span>
@@ -518,24 +674,27 @@
                             <span class="tag">Power BI</span>
                         </div>
                         <p>Processed retail transactions to uncover segmentation patterns, customer retention metrics, and purchasing habits through custom visual dashboards.</p>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/GaneshSunkari66" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <div class="project-links">
+                            <a href="https://github.com/GaneshSunkari66" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Project 4 -->
                 <div class="project-card">
-                    <div>
-                        <h3>Dynamic Drone Network Traffic Management</h3>
+                    <!-- Replace 'college-portal.png' with your actual screenshot/GIF path -->
+                    <img src="college-portal.png" alt="College Portal Demo" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=College+Management+Portal';">
+                    <div class="project-content">
+                        <h3>College Management Portal</h3>
                         <div class="tags" style="margin-bottom:10px;">
-                            <span class="tag">Python</span>
-                            <span class="tag">Random Forest</span>
-                            <span class="tag">SVM</span>
+                            <span class="tag">Python (Flask)</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">HTML/CSS</span>
                         </div>
-                        <p>Implemented ML algorithms to detect anomalous communication in drone swarms, optimizing network resource allocation and predictive traffic fault tolerance.</p>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/GaneshSunkari66" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <p>Full-stack web application featuring role-based authentication, student record maintenance, academic performance tracking, and automated result processing.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/GaneshSunkari66" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+                        </div>
                     </div>
                 </div>
 
@@ -567,27 +726,50 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Form Section -->
     <section id="contact">
-        <div class="container contact-content">
+        <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <p style="color: var(--text-muted);">I am currently looking for entry-level opportunities in Python Development, Data Analytics, and AI/Prompt Engineering.</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope" style="color: var(--primary-color);"></i>
-                    <span>sunkariganesh48@gmail.com</span>
+            
+            <div class="contact-wrapper">
+                <!-- Info Box -->
+                <div class="contact-info-box">
+                    <p style="color: var(--text-muted);">I am looking for full-time entry-level opportunities or freelance projects. Feel free to reach out using the form or direct channels!</p>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>sunkariganesh48@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Hyderabad, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 7416436142</span>
+                    </div>
                 </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i>
-                    <span>Hyderabad, India</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone" style="color: var(--primary-color);"></i>
-                    <span>+91 7416436142</span>
-                </div>
+
+                <!-- Contact Form -->
+                <!-- Replace 'YOUR_FORM_ENDPOINT' with Formspree / Web3Forms endpoint if you want emails directly delivered to your inbox -->
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                    <!-- Form Access Key placeholder for free email forwarding -->
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Hi Ganesh, I would like to discuss a project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="justify-content: center; width: 100%;">Send Message</button>
+                </form>
             </div>
-            <br>
-            <a href="mailto:sunkariganesh48@gmail.com" class="btn">Say Hello</a>
         </div>
     </section>
 
